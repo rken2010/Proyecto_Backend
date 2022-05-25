@@ -1,0 +1,20 @@
+[
+  {
+    "title": "cuaderno",
+    "price": 125,
+    "thumbnail": "www.google,com",
+    "codigo": 1234,
+    "stock": 5,
+    "id": 1,
+    "timestamp": 1653515043637
+  },
+  {
+    "title": "birome",
+    "price": 126,
+    "thumbnail": "www.google,com",
+    "codigo": 1235,
+    "stock": 5,
+    "id": 2,
+    "timestamp": 1653515066518
+  }
+]
