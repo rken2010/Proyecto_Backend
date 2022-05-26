@@ -51,13 +51,24 @@ app.use('/api/carrito', routerCarrito)
   
        //POST//
 routerProductos.post("/",  (req, res) =>{
+  if ( !admin) { return "error 401" }
   const productoNuevo = req.body
   catalogo.guardar( productoNuevo)
   res.send( "carga correcta" )
 })
 
+      //PUT//
+
+  routerProductos.put("/:id", async (req, res) =>{
+    if ( !admin) { return "error 401" }
+    const productoActualizado = req.body
+    catalogo.actualizar( productoActualizado, req.params.id)
+    res.send( "actualizado correctamente" )
+  })
+
       //DELETE //
 routerProductos.delete("/:id", async ( req, res ) => {
+  if ( !admin) { return "error 401" }
   await catalogo.borrar( req.params.id )
   res.send( "borrado correcto" )
 })
@@ -131,7 +142,8 @@ DELETE: '/:id' - Vacía un carrito y lo elimina.
 GET: '/:id/productos' - Me permite listar todos los productos guardados en el carrito
 POST: '/:id/productos' - Para incorporar productos al carrito por su id de producto
 DELETE: '/:id/productos/:id_prod' - Eliminar un producto del carrito por su id de carrito y de producto
-Crear una variable booleana administrador, cuyo valor configuraremos más adelante con el sistema de login. Según su valor (true ó false) me permitirá alcanzar o no las rutas indicadas. En el caso de recibir un request a una ruta no permitida por el perfil, devolver un objeto de error. Ejemplo: { error : -1, descripcion: ruta 'x' método 'y' no autorizada }
+Crear una variable booleana administrador, cuyo valor configuraremos más adelante con el sistema de login. Según su valor (true ó false) me permitirá alcanzar o no las rutas indicadas.
+ En el caso de recibir un request a una ruta no permitida por el perfil, devolver un objeto de error. Ejemplo: { error : -1, descripcion: ruta 'x' método 'y' no autorizada }
 
 Un producto dispondrá de los siguientes campos:  id, timestamp, nombre, descripcion, código, foto (url), precio, stock.
 El carrito de compras tendrá la siguiente estructura: 
