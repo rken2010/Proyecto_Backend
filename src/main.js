@@ -122,7 +122,7 @@ routerCarrito.delete("/:id/productos/:id_prod", async ( req, res ) => {
 
 // PONGO A ESCUCHAR AL SERVER //
 
-const PORT = 8080 // declaro el puerto a usar //
+const PORT = process.env.PORT || 8080 // declaro el puerto a usar //
 
 const server = app.listen(PORT, () => {
     console.log('Servidor HTTP escuchando en el puerto ' + PORT)
