@@ -1,18 +1,18 @@
-const express = require("express");
+import express from 'express';
+import Contenedor from './Contenedor.js';
 const app = express(); // declaro la app //
 const { Router } = express // Exporto el Router de Express//
-const router = Router() 
+
 
 // VARIABLE ADMIN //
 
 let admin = true;
 
 // CONTENEDORES   //
-const Producto = require ( "./Contenedor");
-const Carrito = require ( "./Contenedor");
 
-const catalogo = new Producto("src/contenedores/catalogo.json")
-const carrito = new Carrito ( "./src/contenedores/compras.json")
+
+const catalogo = new Contenedor("src/contenedores/catalogo.json")
+const carrito = new Contenedor ( "./src/contenedores/compras.json")
 
 // agrego middlewares
 

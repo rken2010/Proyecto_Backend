@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Primera entrega curso Backend",
   "main": "./src/main.js",
+  "type":"module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/main.js"
@@ -11,9 +12,7 @@
   "author": "RUIZ DIAZ JUAN RAMON",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
-  },
-  "devDependencies": {}
+    "express": "^4.18.1",
+    "firebase-admin": "^10.3.0"
+  }
 }
-
-
