@@ -1,5 +1,8 @@
 import express from 'express';
+import contenedorFirebase from './ContenedorFirebase.js';
+import contenedorMongo from './ContenedorMongo.js';
 import Contenedor from './Contenedor.js';
+
 const app = express(); // declaro la app //
 const { Router } = express // Exporto el Router de Express//
 
@@ -11,8 +14,10 @@ let admin = true;
 // CONTENEDORES   //
 
 
-const catalogo = new Contenedor("src/contenedores/catalogo.json")
-const carrito = new Contenedor ( "./src/contenedores/compras.json")
+const catalogoMem = new Contenedor("src/contenedores/catalogo.json")
+const carritoMem = new Contenedor("src/contenedores/carrito.json")
+const catalogo = new contenedorMongo("Productos")
+const carrito = new contenedorFirebase ( "carrito" )
 
 // agrego middlewares
 
